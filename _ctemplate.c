@@ -194,7 +194,7 @@ static TMPL_varlist *addDictionaryToVarlist(TMPL_varlist *list,const char* prefi
        if(!nestedDict) goto onError;
        if(!PyObject_TypeCheck(nestedDict,&PyDict_Type))
        { /* array does not contain a dictionary */
-        PyErr_SetString(PyExc_AttributeError,"Lists can contain only dictionaries");
+        PyErr_SetString(PyExc_AttributeError,"Lists can only contain dictionaries");
         goto onError;
        }
         /* recurrence */
@@ -216,7 +216,7 @@ static TMPL_varlist *addDictionaryToVarlist(TMPL_varlist *list,const char* prefi
      { /* string */
       if(!PyObject_TypeCheck(value,&PyString_Type))
       { /* not a list nor a string - error! */
-        PyErr_SetString(PyExc_AttributeError,"Entries in dictionaries can be either strings, lsist or other dictionaries. No other types are permitted");
+        PyErr_SetString(PyExc_AttributeError,"Entries in dictionaries can be either strings, lists or other dictionaries. No other types are permitted");
         goto onError;
       }
       valChar = PyString_AsString(value);
