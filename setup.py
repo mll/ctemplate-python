@@ -9,11 +9,7 @@
 # *   
 # *
 
-
-
-
 from distutils.core import setup, Extension
-import numpy.distutils.misc_util
 
 setup(name="_ctemplate",version="1.0",
     ext_modules=[Extension("_ctemplate", ["_ctemplate.c", "ctemplate.c"])]
